@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 // Require models
-const { user } = require('./models');
+const { user, post } = require('./models');
 
 // Configure routes
 const routes = require('./controllers');
