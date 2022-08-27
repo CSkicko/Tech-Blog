@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 // Require models
-
+const { user } = require('./models');
 
 // Configure routes
 const routes = require('./controllers');
@@ -34,6 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // Sync the database and start the app
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`Listening on localhost:${PORT}`));
 });
