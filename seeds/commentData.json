@@ -1,0 +1,12 @@
+[
+    {
+        "content": "That's really cool!",
+        "creator_id": 1,
+        "post_id": 2
+    },
+    {
+        "content": "Interesting, I'll give it a go!",
+        "creator_id": 2,
+        "post_id": 3
+    }
+]

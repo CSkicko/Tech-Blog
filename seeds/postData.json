@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Javascript Tip",
+        "content": "Use shift() to remove the first item of an array",
+        "creator_id": 1
+    },
+    {
+        "title": "CSS Tip",
+        "content": "Bootstrap grid can be used to quickly create a responsive website design",
+        "creator_id": 2
+    },
+    {
+        "title": "Node Reminder",
+        "content": "Check that you have run npm install if your node application isn't working",
+        "creator_id": 3
+    },
+    {
+        "title": "Have fun",
+        "content": "Spend time enjoying coding!",
+        "creator_id": 1
+    }
+]
