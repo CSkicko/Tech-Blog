@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
         const postDataClean = postData.map((data) => data.get({ plain: true }));
 
-        res.render('home', { postDataClean } );
+        res.render('home', { postDataClean, logged_in: req.session.logged_in } );
 
     } catch {
         res.status(500).json(err);
