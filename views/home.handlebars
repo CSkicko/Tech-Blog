@@ -1,13 +1,25 @@
-<div class="card w-100">
-    <div class="card-body bg-info">
+{{!-- Available Data:
+postDataClean.
+                id
+                title
+                content
+                creator_id
+                createdAt
+                updatedAt
+                user.username--}}
+
+{{#each postDataClean as |post|}}
+<div class="card w-100 my-2 bg-info">
+    <div class="card-body">
         <div class="row text-white">
             <div class="col-8">
-                <h5 class="card-title p-2 my-auto">Card title</h5>
+                <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
             </div>
             <div class="col-4">
-                <h6 class="card-subtitle p-2 my-auto">Card subtitle</h6>
+                <h6 class="card-subtitle p-2 my-auto">Posted by {{post.user.username}} on {{post.createdAt}}</h6>
             </div>
         </div>
-        <p class="card-text bg-white p-4">Some quick example text to build on the card title and make up the bulk of the card's content. gggggggggggggggggggggggggggggggggggggggggggggggg</p>
+        <p class="card-text bg-white p-4">{{post.content}}</p>
     </div>
 </div>
+{{/each}}
