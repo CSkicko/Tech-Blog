@@ -10,21 +10,41 @@ userDataClean.
                         createdAt
                         updatedAt
 --}}
+<div class="row text-center">
+    <h2>Dashboard</h2>
+</div>
 
-<h2>Dashboard</h2>
-
-{{#each userDataClean.posts as |post|}}
-<div class="card w-100 my-2 bg-info">
-    <div class="card-body">
-        <div class="row text-white">
-            <div class="col-8">
-                <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
-            </div>
-            <div class="col-4">
-                <h6 class="card-subtitle p-2 my-auto">Posted by {{user.username}} on {{user.posts.createdAt}}</h6>
+<div class="row my-4">
+    {{#each userDataClean.posts as |post|}}
+    <div class="col-12">
+        <div class="card w-100 my-2 bg-info">
+            <div class="card-body">
+                <div class="row text-white">
+                    <div class="col-8">
+                        <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
+                    </div>
+                    <div class="col-4">
+                        <h6 class="card-subtitle p-2 my-auto">Posted by {{userDataClean.username}} on {{post.createdAt}}</h6>
+                    </div>
+                </div>
+                <p class="card-text bg-white p-4">{{post.content}}</p>
             </div>
         </div>
-        <p class="card-text bg-white p-4">{{post.content}}</p>
     </div>
+    {{/each}}
 </div>
-{{/each}}
+
+<div class="row my-3 bg-primary text-center">
+    <form>
+        <div class="form-group text-center my-3">
+            <label for="new-post-title" class="text-white">Create New Post</label>
+            <input type="input" class="form-control my-2" id="new-post-title" placeholder="Title">
+        </div>
+        <div class="form-group text-center">
+            <textarea class="form-control" id="new-post" rows="3" placeholder="Start typing your new post..."></textarea>
+        </div>
+        <button type="submit" id="add-post" class="btn btn-info my-2">Save</button>
+    </form>
+</div>
+
+<script src="/js/dashboard.js"></script>
