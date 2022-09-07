@@ -23,8 +23,11 @@ router.post('/signup', async (req, res) => {
     });
 })
 
-router.post('/logout', async (req, res) => {
-    res.json("You're trying to logout");
+router.get('/logout', async (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+    })};
+    res.status(204).render("home");
 })
 
 module.exports = router;
