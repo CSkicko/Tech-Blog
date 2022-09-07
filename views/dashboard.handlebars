@@ -1,1 +1,30 @@
-<h1>Dashboard</h1>
+{{!-- Available Data:
+userDataClean.
+                id
+                username
+                posts.
+                        id
+                        title
+                        content
+                        creator_id
+                        createdAt
+                        updatedAt
+--}}
+
+<h2>Dashboard</h2>
+
+{{#each userDataClean.posts as |post|}}
+<div class="card w-100 my-2 bg-info">
+    <div class="card-body">
+        <div class="row text-white">
+            <div class="col-8">
+                <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
+            </div>
+            <div class="col-4">
+                <h6 class="card-subtitle p-2 my-auto">Posted by {{user.username}} on {{user.posts.createdAt}}</h6>
+            </div>
+        </div>
+        <p class="card-text bg-white p-4">{{post.content}}</p>
+    </div>
+</div>
+{{/each}}
