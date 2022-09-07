@@ -2,6 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const session = require('express-session');
 
 // Require models
 const { user, post, comment } = require('./models');
@@ -9,8 +10,9 @@ const { user, post, comment } = require('./models');
 // Configure routes
 const routes = require('./controllers');
 
-// Set up database connection
+// Set up database connection and sequelize store
 const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Set up handlebars engine
 const hbs = exphbs.create({});
@@ -18,6 +20,24 @@ const hbs = exphbs.create({});
 // Set up app and port
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Configure the session
+const sess = {
+    secret: 'quibvuqwbvoqrv',
+    cookie: {
+        maxAge: 500000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+app.use(session(sess));
 
 // Configure handlebars
 app.engine('handlebars', hbs.engine);
