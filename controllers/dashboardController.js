@@ -23,4 +23,14 @@ router.get('/', withAuth, async (req, res) => {
     res.render('dashboard', { userDataClean, logged_in: req.session.logged_in });
 });
 
+
+router.get('/:id/edit', withAuth, async (req, res) => {
+    
+    const postData = await Post.findByPk(req.params.id);
+    const postDataClean = postData.get({ plain: true });
+
+    console.log(postDataClean);
+    res.render('editPost', { postDataClean, logged_in: req.session.logged_in })
+})
+
 module.exports = router;

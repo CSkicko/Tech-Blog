@@ -17,21 +17,23 @@ logged_in
 
 <div class="row my-4">
     {{#each userDataClean.posts as |post|}}
-    <div class="col-12">
-        <div class="card w-100 my-2 bg-info">
-            <div class="card-body">
-                <div class="row text-white">
-                    <div class="col-8">
-                        <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
+    <a href="/dashboard/{{post.id}}/edit">
+        <div class="col-12">
+            <div class="card w-100 my-2 bg-info">
+                <div class="card-body">
+                    <div class="row text-white">
+                        <div class="col-8">
+                            <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
+                        </div>
+                        <div class="col-4">
+                            <h6 class="card-subtitle p-2 my-auto">Posted by {{../userDataClean.username}} on {{format_date post.createdAt}}</h6>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <h6 class="card-subtitle p-2 my-auto">Posted by {{../userDataClean.username}} on {{format_date post.createdAt}}</h6>
-                    </div>
+                    <p class="card-text bg-white p-4">{{post.content}}</p>
                 </div>
-                <p class="card-text bg-white p-4">{{post.content}}</p>
             </div>
         </div>
-    </div>
+    </a>
     {{/each}}
 </div>
 
