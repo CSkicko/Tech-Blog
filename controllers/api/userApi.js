@@ -49,7 +49,7 @@ router.get('/logout', async (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
     })};
-    res.render("login");
+    res.render("logout");
 })
 
 module.exports = router;
