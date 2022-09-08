@@ -2,3 +2,11 @@ a {
     color: rgb(53, 191, 233);
     text-decoration: none;
 }
+
+#post-form-row {
+    display: none;
+}
+
+#display-post-form {
+    display: block;
+}
