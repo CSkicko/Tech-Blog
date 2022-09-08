@@ -25,7 +25,7 @@ logged_in
     <h2>Post</h2>
 </div>
 
-<div class="card w-100 my-2 bg-info">
+<div class="card w-100 my-2 bg-info" id="post-info" data-id="{{postDataClean.id}}">
     <div class="card-body">
         <div class="row text-white">
             <div class="col-8">
@@ -58,3 +58,19 @@ logged_in
     </div>
 </div>
 {{/each}}
+
+<div class="row my-3 bg-secondary text-center">
+    <button class="btn btn-primary" id="display-comment-form">Add New Comment</button>
+</div>
+
+<div class="row my-3 bg-primary text-center" id="comment-form-row">
+    <form>
+        <div class="form-group text-center my-3">
+            <label for="new-comment" class="text-white">Create New Comment</label>
+            <input type="input" class="form-control my-2" id="new-comment" placeholder="Add your comment here...">
+        </div>
+        <button type="submit" id="add-comment" class="btn btn-primary my-2">Save</button>
+    </form>
+</div>
+
+<script src="/js/post.js"></script>

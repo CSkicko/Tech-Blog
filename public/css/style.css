@@ -7,6 +7,10 @@ a {
     display: none;
 }
 
+#comment-form-row {
+    display: none;
+}
+
 #display-post-form {
     display: block;
 }
