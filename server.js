@@ -6,7 +6,7 @@ const session = require('express-session');
 const helpers = require('./utils/helpers');
 
 // Require models
-const { user, post, comment } = require('./models');
+const { User, Post, Comment } = require('./models');
 
 // Configure routes
 const routes = require('./controllers');

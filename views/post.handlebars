@@ -1,1 +1,60 @@
-<h1>Post</h1>
+{{!-- Available Data:
+postDataClean.
+                id
+                title
+                content
+                creator_id
+                createdAt
+                updatedAt
+                user.
+                        id
+                        username
+commentDataClean.
+                    id
+                    content
+                    creator_id
+                    post_id
+                    createdAt
+                    updatedAt
+                    user.
+                            id
+                            username
+logged_in
+--}}
+<div class="row text-center">
+    <h2>Post</h2>
+</div>
+
+<div class="card w-100 my-2 bg-info">
+    <div class="card-body">
+        <div class="row text-white">
+            <div class="col-8">
+                <h5 class="card-title p-2 my-auto">{{postDataClean.title}}</h5>
+            </div>
+            <div class="col-4">
+                <h6 class="card-subtitle p-2 my-auto">Posted by {{postDataClean.user.username}} on {{format_date postDataClean.createdAt}}</h6>
+            </div>
+        </div>
+        <p class="card-text bg-white p-4">{{postDataClean.content}}</p>
+    </div>
+</div>
+
+<div class="row text-center my-4">
+    <h3>Comments</h3>
+</div>
+
+{{#each commentDataClean as |comment|}}
+<div class="card w-100 my-2 bg-secondary">
+    <div class="card-body">
+        <div class="row text-white">
+            <div class="col-8">
+                <h5 class="card-title p-2 my-auto">{{comment.user.username}}</h5>
+            </div>
+            <div class="col-4">
+                <h6 class="card-subtitle p-2 my-auto">{{format_date comment.createdAt}}</h6>
+            </div>
+        </div>
+        <p class="card-text bg-white p-4">{{comment.content}}</p>
+    </div>
+</div>
+{{/each}}
