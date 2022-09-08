@@ -14,4 +14,23 @@ router.post('/', withAuth, async (req, res) => {
     res.json(`Added ${postDetails}`);
 })
 
+router.put('/', withAuth, async (req, res) => {
+    
+    const { title, content, postId } = req.body;
+
+    const updated = await Post.update(
+        {
+            title,
+            content,
+        },
+        {
+            where: {
+                id: postId
+            }
+        }
+    );
+
+    res.json(`Updated post ${postId}`);
+})
+
 module.exports = router;
