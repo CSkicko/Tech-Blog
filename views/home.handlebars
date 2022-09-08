@@ -16,7 +16,7 @@ postDataClean.
                 <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
             </div>
             <div class="col-4">
-                <h6 class="card-subtitle p-2 my-auto">Posted by {{post.user.username}} on {{post.createdAt}}</h6>
+                <h6 class="card-subtitle p-2 my-auto">Posted by {{post.user.username}} on {{format_date post.createdAt}}</h6>
             </div>
         </div>
         <p class="card-text bg-white p-4">{{post.content}}</p>

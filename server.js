@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const session = require('express-session');
+const helpers = require('./utils/helpers');
 
 // Require models
 const { user, post, comment } = require('./models');
@@ -15,7 +16,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Set up handlebars engine
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 // Set up app and port
 const app = express();

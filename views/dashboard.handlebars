@@ -9,6 +9,7 @@ userDataClean.
                         creator_id
                         createdAt
                         updatedAt
+logged_in
 --}}
 <div class="row text-center">
     <h2>Dashboard</h2>
@@ -24,7 +25,7 @@ userDataClean.
                         <h5 class="card-title p-2 my-auto">{{post.title}}</h5>
                     </div>
                     <div class="col-4">
-                        <h6 class="card-subtitle p-2 my-auto">Posted by {{userDataClean.username}} on {{post.createdAt}}</h6>
+                        <h6 class="card-subtitle p-2 my-auto">Posted by {{../userDataClean.username}} on {{format_date post.createdAt}}</h6>
                     </div>
                 </div>
                 <p class="card-text bg-white p-4">{{post.content}}</p>
