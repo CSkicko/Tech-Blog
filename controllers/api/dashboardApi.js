@@ -31,6 +31,12 @@ router.put('/', withAuth, async (req, res) => {
     );
 
     res.json(`Updated post ${postId}`);
+});
+
+router.delete('/', withAuth, async (req, res) => {
+    const { postId } = req.body;
+    const destroyed = await Post.destroy({ where: { id: postId } });
+    res.json(`Deleted post ${postId}`);
 })
 
 module.exports = router;
